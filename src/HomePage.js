@@ -4,43 +4,31 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import frLocale from '@fullcalendar/core/locales/fr';
-import { createApi } from 'unsplash-js';
 import { Link, useNavigate } from 'react-router-dom';
 import './styles/homepage.css'; // Import du CSS spécifique
 
-const unsplash = createApi({
-  accessKey: 'tTCREfXze17kqilEtztuJFajxv3wk60Wc-dCCKqMQVA',
-});
+// Import des images locales
+import image1 from './images/chevret bakery.png';
+import image2 from './images/Conf.png';
+import image3 from './images/Fête.png';
+import image4 from './images/Labo.png';
+import image5 from './images/Ope.png';
+import image6 from './images/Soutien.png';
 
 function HomePage() {
-  const [images, setImages] = useState([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
+  
+  // Stockage des images dans un tableau
+  const images = [image1, image2, image3, image4, image5, image6];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const fetchImages = () => {
-    unsplash.photos.getRandom({ count: 5 }).then((result) => {
-      if (result.errors) {
-        console.log('Erreur de chargement des images : ', result.errors);
-      } else {
-        const fetchedImages = result.response.map((image) => image.urls.full);
-        setImages(fetchedImages);
-      }
-    }).catch((error) => {
-      console.error('Erreur lors de la récupération des images:', error);
-    });
-  };
-
+  // Changement d'image toutes les 5 secondes
   useEffect(() => {
-    fetchImages();
-  }, []);
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
 
-  useEffect(() => {
-    if (images.length > 0) {
-      const intervalId = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 5000);
-      return () => clearInterval(intervalId);
-    }
+    return () => clearInterval(intervalId);
   }, [images.length]);
 
   const formatEventTime = (date) => {
@@ -79,6 +67,13 @@ function HomePage() {
           events={[
             { title: 'Dev Java', start: '2024-09-23T08:00:00', extendedProps: { salle: '107' } },
             { title: 'Dev IA', start: '2024-09-23T10:00:00', extendedProps: { salle: '104' } },
+            { title: 'Dev Python', start: '2024-09-23T14:00:00', extendedProps: { salle: '108' } },
+            { title: 'Dev Java', start: '2024-09-24T08:00:00', extendedProps: { salle: '107' } },
+            { title: 'Dev IA', start: '2024-09-24T10:00:00', extendedProps: { salle: '104' } },
+            { title: 'Dev Java', start: '2024-09-25T08:00:00', extendedProps: { salle: '107' } },
+            { title: 'Dev Java', start: '2024-09-26T08:00:00', extendedProps: { salle: '107' } },
+            { title: 'Dev IA', start: '2024-09-26T10:00:00', extendedProps: { salle: '104' } },
+            { title: 'Dev Java', start: '2024-09-27T08:00:00', extendedProps: { salle: '107' } },
             // autres événements...
           ]}
           eventContent={renderEventContent}
@@ -90,13 +85,11 @@ function HomePage() {
       </div>
 
       <div className="image-gallery">
-        {images.length > 0 && (
-          <img
-            src={images[currentImageIndex]}
-            alt="Gallery"
-            className="gallery-image"
-          />
-        )}
+        <img
+          src={images[currentImageIndex]}
+          alt={`Gallery ${currentImageIndex}`}
+          className="gallery-image"
+        />
       </div>
 
       <div className="incident-button-container">
