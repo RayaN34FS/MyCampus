@@ -1,0 +1,102 @@
+/* homepage.css - Dark Mode */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden; /* Empêche le scroll */
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 100%; /* Assure que le conteneur prenne toute la largeur */
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #1f2937;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.header h1 {
+  color: white;
+  font-size: 2rem;
+}
+
+.title {
+  font-size: 24px;
+  color: var(--text-color);
+  text-align: center;
+  flex-grow: 1;
+}
+
+.logout {
+  position: absolute;
+  right: 40px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logout:hover {
+  color: var(--accent-color);
+}
+
+.calendar-container {
+  margin-top: 90px;
+  background-color: var(--card-background);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  width: 100%; /* Prend toute la largeur */
+  max-width: 1200px; /* Limite la largeur maximale pour des écrans très larges */
+  height: 30%; /* Réduction de la hauteur à 30% pour laisser plus d'espace aux images */
+  overflow: hidden;
+}
+
+.image-gallery {
+  margin-top: 10px;
+  width: 100%; /* Utilise toute la largeur */
+  max-width: 1200px;
+  height: 55%; /* Ajuste la hauteur de la galerie d'images */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-image {
+  width: 100%; /* Prend toute la largeur disponible */
+  height: 100%; /* Remplit l'espace disponible tout en conservant les proportions */
+  object-fit: cover;
+}
+
+.incident-button-container {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+.incident-button {
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 10px;
+  /* border: 1px solid var(--accent-color); */
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.incident-button:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}

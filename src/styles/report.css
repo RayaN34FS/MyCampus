@@ -1,0 +1,135 @@
+/* report.css - Dark Mode */
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.report-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  background-color: var(--background-color);
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #1f2937;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  color: white;
+  font-size: 2rem;
+}
+
+.header-link {
+  font-size: 24px;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header-link:hover {
+  color: var(--accent-color);
+}
+
+.form-container {
+  margin-top: 90px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.incident-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field2 {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+/* Style des champs d'input */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  background-color: var(--input-background);
+  color: var(--text-color);
+  transition: border 0.3s ease;
+}
+
+/* Style du menu déroulant (select) */
+.select-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  background-color: var(--input-background);
+  color: var(--text-color);
+  transition: border 0.3s ease;
+  /* appearance: none; Enlève le style par défaut du select */
+}
+
+/* Indique une erreur sur les champs input */
+.input-error {
+  border-color: var(--error-color);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 12px;
+}
+
+.submit-button {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: var(--accent-hover-color);
+}
+
+.confirmation-message {
+  text-align: center;
+  color: var(--text-color);
+}
+
+.return-button {
+  margin-top: 20px;
+  background-color: var(--card-background);
+  padding: 10px;
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.return-button:hover {
+  background-color: var(--hover-color);
+}
